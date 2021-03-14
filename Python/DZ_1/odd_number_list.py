@@ -8,7 +8,7 @@ c.* Решить задачу под пунктом b, не создавая н�
 """
 
 
-#odd_list = [i ** 3 for i in range(1001) if i % 2 != 0]
+odd_list = [i ** 3 for i in range(1001) if i % 2 != 0]
 summ_id = 0
 sum_number_list = 0
 
@@ -21,5 +21,17 @@ for id in odd_list:
         sum_number_list += summ_id
     summ_id = 0
 
+print(f'Сумма чисел массива, сумма цифр которых делиться на 7 равна: {sum_number_list}')
+sum_number_list = 0
 
-print(sum_number_list)
+for id in odd_list:
+    id += 17
+    while id > 0:
+        digit = id % 10
+        summ_id += digit
+        id //= 10
+    if summ_id % 7 == 0:
+        sum_number_list += summ_id
+    summ_id = 0
+
+print(f'Сумма чисел массива увеличинных на 17, сумма цифр которых делиться на 7 равна: {sum_number_list}')
